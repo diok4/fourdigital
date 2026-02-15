@@ -22,10 +22,10 @@ const Team = ({ eyebrow, title, highlight, items }: TeamProps) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <p className="font-body text-xs sm:text-sm uppercase tracking-[0.24em] sm:tracking-[0.3em] text-muted-foreground mb-4">
             {eyebrow}
           </p>
-          <h2 className="font-display font-light text-4xl md:text-5xl text-foreground">
+          <h2 className="font-display font-light text-3xl sm:text-4xl md:text-5xl text-foreground">
             {title ? `${title} ` : ""}
             <span className="font-medium">{highlight}</span>
           </h2>

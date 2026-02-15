@@ -13,13 +13,13 @@ type HeroProps = {
 
 const Hero = ({ eyebrow, title, highlight, description, primaryCta, secondaryCta }: HeroProps) => {
   return (
-    <section className="min-h-screen flex items-center justify-center section-padding pt-32 relative overflow-hidden">
+    <section className="min-h-[100svh] flex items-center justify-center section-padding pt-32 relative overflow-hidden">
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-6"
+          className="font-body text-xs sm:text-sm uppercase tracking-[0.24em] sm:tracking-[0.3em] text-muted-foreground mb-6"
         >
           {eyebrow}
         </motion.p>
@@ -28,7 +28,7 @@ const Hero = ({ eyebrow, title, highlight, description, primaryCta, secondaryCta
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="font-display font-light text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] tracking-tight mb-8"
+          className="font-display font-light text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] tracking-tight mb-8"
         >
           {title}
           <br />
@@ -39,7 +39,7 @@ const Hero = ({ eyebrow, title, highlight, description, primaryCta, secondaryCta
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           {description}
         </motion.p>
@@ -50,19 +50,18 @@ const Hero = ({ eyebrow, title, highlight, description, primaryCta, secondaryCta
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#contact" className="magnetic-button">
+          <a href="#contact" className="magnetic-button w-full sm:w-auto">
             {primaryCta}
           </a>
           <a 
             href="#portfolio" 
-            className="font-display text-sm font-medium text-foreground px-8 py-4 hover:text-primary transition-colors duration-300"
+            className="font-display text-sm font-medium text-foreground px-8 py-4 hover:text-primary transition-colors duration-300 w-full sm:w-auto text-center"
           >
             {secondaryCta}
           </a>
         </motion.div>
       </div>
 
-      {/* Decorative elements */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

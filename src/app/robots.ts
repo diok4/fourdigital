@@ -7,8 +7,10 @@ const robots = (): MetadataRoute.Robots => {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/api/", "/admin/", "/*?utm_", "/*?fbclid="],
       },
     ],
+    host: siteConfig.url,
     sitemap: `${siteConfig.url}/sitemap.xml`,
   };
 };

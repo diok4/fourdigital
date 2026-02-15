@@ -23,7 +23,13 @@ export type HomeContent = {
     linkLabel: string;
     allServicesLabel: string;
     allServicesHref: string;
-    items: { title: string; description: string; href?: string }[];
+    items: {
+      title: string;
+      description: string;
+      href?: string;
+      timeline?: string;
+      price?: string;
+    }[];
   };
   process: {
     eyebrow: string;
@@ -50,7 +56,14 @@ export type HomeContent = {
     title: string;
     highlight: string;
     viewCaseLabel: string;
-    items: { title: string; category: string; description: string }[];
+    items: {
+      title: string;
+      category: string;
+      description: string;
+      href?: string;
+      imageSrc?: string;
+      imageAlt?: string;
+    }[];
   };
   testimonials: {
     eyebrow: string;
@@ -92,7 +105,6 @@ const navLinks = {
   ru: [
     { label: "Услуги", href: "#services" },
     { label: "Этапы", href: "#process" },
-    { label: "Типы", href: "#types" },
     { label: "Проекты", href: "#portfolio" },
     { label: "FAQ", href: "#faq" },
     { label: "Контакты", href: "#contact" },
@@ -100,7 +112,6 @@ const navLinks = {
   uz: [
     { label: "Xizmatlar", href: "#services" },
     { label: "Bosqichlar", href: "#process" },
-    { label: "Turlar", href: "#types" },
     { label: "Loyihalar", href: "#portfolio" },
     { label: "FAQ", href: "#faq" },
     { label: "Aloqa", href: "#contact" },
@@ -108,7 +119,6 @@ const navLinks = {
   en: [
     { label: "Services", href: "#services" },
     { label: "Process", href: "#process" },
-    { label: "Types", href: "#types" },
     { label: "Work", href: "#portfolio" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#contact" },
@@ -151,29 +161,25 @@ const contentByLocale: Record<Locale, HomeContent> = {
       allServicesHref: "/ru/services",
       items: [
         {
-          title: "Создание сайтов под ключ",
-          description: "Полный цикл разработки: стратегия, дизайн и запуск сайта под цели бизнеса.",
-          href: "/ru/services/website-development",
-        },
-        {
           title: "Лендинги",
           description: "Одностраничные сайты под офферы, рекламу и быстрый запуск продаж.",
-          href: "/ru/services/landing-page",
+          timeline: "2-4 дня",
+          price: "1 490 000 сум",
+          href: "/ru/lending-pod-klyuch-tashkent",
         },
         {
           title: "Корпоративные сайты",
           description: "Сайт компании с услугами, кейсами и блоками доверия.",
-          href: "/ru/services/corporate-website",
-        },
-        {
-          title: "Интернет‑магазины",
-          description: "Каталог, фильтры, корзина и интеграции для онлайн‑продаж.",
-          href: "/ru/services/ecommerce",
+          timeline: "5-10 дней",
+          price: "2 490 000 сум",
+          href: "/ru/korporativny-sait-uzbekistan",
         },
         {
           title: "SEO‑продвижение",
           description: "Техническая оптимизация, структура и контент для роста органики.",
-          href: "/ru/services/seo",
+          timeline: "30-60 дней",
+          price: "3 490 000 сум",
+          href: "/ru/seo-prodvizhenie-tashkent",
         },
       ],
     },
@@ -202,29 +208,29 @@ const contentByLocale: Record<Locale, HomeContent> = {
     },
     projectTypes: {
       eyebrow: "Типы проектов и сроки",
-      title: "Планируем",
-      highlight: "честно и заранее",
+      title: "Основные",
+      highlight: "направления",
       items: [
         {
           title: "Лендинг",
-          timeline: "7–14 дней",
-          price: "от 1 500 000 сум",
+          timeline: "2-4 дня",
+          price: "1 490 000 сум",
           process: ["Бриф", "Структура", "Дизайн в коде", "Запуск"],
           description: "Быстрый запуск оффера с фокусом на лиды и конверсию.",
         },
         {
           title: "Корпоративный сайт",
-          timeline: "14–28 дней",
-          price: "от 2 500 000 сум",
+          timeline: "5-10 дней",
+          price: "2 490 000 сум",
           process: ["Бриф", "Архитектура", "Дизайн в коде", "Разработка", "Запуск"],
           description: "Структура, доверие, услуги и кейсы в понятной навигации.",
         },
         {
-          title: "Сайт продаж / интернет‑магазин",
-          timeline: "сроки обсуждаются",
-          price: "индивидуально",
-          process: ["Бриф", "Каталог", "Интеграции", "Запуск"],
-          description: "Подберём 2–3 варианта под ваш бюджет и ассортимент.",
+          title: "CRM панель",
+          timeline: "10-18 дней",
+          price: "3 490 000 сум",
+          process: ["Бриф", "UX карта", "Интерфейс", "Интеграции", "Запуск"],
+          description: "Личный кабинет и CRM-панель для команды: статусы лидов, задачи и сквозная воронка в одном месте.",
         },
       ],
       note: "Сроки и стоимость зависят от объёма контента, количества страниц и интеграций.",
@@ -236,22 +242,28 @@ const contentByLocale: Record<Locale, HomeContent> = {
       viewCaseLabel: "Смотреть кейс →",
       items: [
         {
-          title: "Мебельный бренд",
-          category: "E-commerce и каталоги",
+          title: "MedTech Future (MTF)",
+          category: "Корпоративный сайт • Медицинские технологии",
           description:
-            "Запустили интернет-магазин с фильтрами, оплатой и доставкой по Узбекистану.",
+            "Разработали сайт mtf.uz с сильным позиционированием, каталогом направлений и конверсионной подачей для B2B/B2G клиник.",
+          href: "https://mtf.uz",
+          imageSrc: "/portfolio/mtf.png",
+          imageAlt: "Главный экран сайта MedTech Future (mtf.uz)",
+        },
+        {
+          title: "Mir Matrasov (matras.uz)",
+          category: "SEO оптимизация • E-commerce",
+          description:
+            "Для matras.uz выполнили SEO-оптимизацию: усилили структуру страниц, метаданные и внутреннюю перелинковку под коммерческие запросы.",
+          href: "https://matras.uz",
+          imageSrc: "/portfolio/mir-matrasov.png",
+          imageAlt: "Главный экран сайта matras.uz после SEO-оптимизации",
         },
         {
           title: "Девелопер",
           category: "Сайт-витрина и лиды",
           description:
             "Собрали премиальный сайт и интегрировали CRM, чтобы отдел продаж работал быстрее.",
-        },
-        {
-          title: "B2B сервис",
-          category: "Платформа и личный кабинет",
-          description:
-            "Спроектировали кабинет партнёров и автоматизировали заявки в единую воронку.",
         },
       ],
     },
@@ -408,29 +420,25 @@ const contentByLocale: Record<Locale, HomeContent> = {
       allServicesHref: "/uz/services",
       items: [
         {
-          title: "Sayt yaratish",
-          description: "Strategiya, dizayn va ishga tushirish — biznes maqsadlariga mos sayt.",
-          href: "/uz/services/website-development",
-        },
-        {
           title: "Landinglar",
           description: "Reklama va tez savdo uchun bir sahifali saytlar.",
-          href: "/uz/services/landing-page",
+          timeline: "2-4 kun",
+          price: "1 490 000 so'm",
+          href: "/uz/lending-pod-klyuch-tashkent",
         },
         {
           title: "Korporativ saytlar",
           description: "Xizmatlar, keyslar va ishonch bloklari bilan kompaniya sayti.",
-          href: "/uz/services/corporate-website",
-        },
-        {
-          title: "Internet-do'konlar",
-          description: "Katalog, filtrlar va to'lovlar bilan onlayn savdo.",
-          href: "/uz/services/ecommerce",
+          timeline: "5-10 kun",
+          price: "2 490 000 so'm",
+          href: "/uz/korporativny-sait-uzbekistan",
         },
         {
           title: "SEO rivojlantirish",
           description: "Texnik optimizatsiya va kontent orqali organik o'sish.",
-          href: "/uz/services/seo",
+          timeline: "30-60 kun",
+          price: "3 490 000 so'm",
+          href: "/uz/seo-prodvizhenie-tashkent",
         },
       ],
     },
@@ -459,29 +467,29 @@ const contentByLocale: Record<Locale, HomeContent> = {
     },
     projectTypes: {
       eyebrow: "Loyiha turlari va muddatlar",
-      title: "Oldindan",
-      highlight: "halol rejalashtiramiz",
+      title: "Asosiy",
+      highlight: "yo'nalishlar",
       items: [
         {
           title: "Landing",
-          timeline: "7–14 kun",
-          price: "1 500 000 so'mdan",
+          timeline: "2-4 kun",
+          price: "1 490 000 so'm",
           process: ["Brif", "Struktura", "Kodda dizayn", "Ishga tushirish"],
           description: "Lid va konversiyaga yo'naltirilgan tezkor ishga tushirish.",
         },
         {
           title: "Korporativ sayt",
-          timeline: "14–28 kun",
-          price: "2 500 000 so'mdan",
+          timeline: "5-10 kun",
+          price: "2 490 000 so'm",
           process: ["Brif", "Arxitektura", "Kodda dizayn", "Ishlab chiqish", "Ishga tushirish"],
           description: "Tuzilma, ishonch, xizmatlar va keyslar — sodda navigatsiyada.",
         },
         {
-          title: "Savdo sayti / internet-do'kon",
-          timeline: "muddat individual",
-          price: "individual",
-          process: ["Brif", "Katalog", "Integratsiyalar", "Ishga tushirish"],
-          description: "Byudjet va assortimentga mos 2–3 variant taklif qilamiz.",
+          title: "CRM panel",
+          timeline: "10-18 kun",
+          price: "3 490 000 so'm",
+          process: ["Brif", "UX xarita", "Interfeys", "Integratsiyalar", "Ishga tushirish"],
+          description: "Jamoa uchun CRM panel: lead statuslari, vazifalar va bitta joyda aniq funnel boshqaruvi.",
         },
       ],
       note: "Muddat va narx kontent hajmi, sahifalar soni va integratsiyalarga bog'liq.",
@@ -493,19 +501,26 @@ const contentByLocale: Record<Locale, HomeContent> = {
       viewCaseLabel: "Keysni ko'rish →",
       items: [
         {
-          title: "Mebel brendi",
-          category: "E-commerce va kataloglar",
-          description: "O'zbekiston bo'ylab filtr, to'lov va yetkazib berish bilan internet-do'kon yaratdik.",
+          title: "MedTech Future (MTF)",
+          category: "Korporativ sayt • Tibbiyot texnologiyalari",
+          description: "mtf.uz uchun kuchli pozitsiyalash va konversiyaga yo'naltirilgan korporativ sayt yaratdik.",
+          href: "https://mtf.uz",
+          imageSrc: "/portfolio/mtf.png",
+          imageAlt: "MedTech Future (mtf.uz) bosh sahifa preview",
+        },
+        {
+          title: "Mir Matrasov (matras.uz)",
+          category: "SEO optimizatsiya • E-commerce",
+          description:
+            "matras.uz uchun texnik va kontent SEO optimizatsiyasini bajardik: sahifa strukturasi, metadata va ichki linking kuchaytirildi.",
+          href: "https://matras.uz",
+          imageSrc: "/portfolio/mir-matrasov.png",
+          imageAlt: "SEO optimizatsiyadan keyingi matras.uz bosh sahifasi",
         },
         {
           title: "Devloper",
           category: "Vitrina sayt va lidlar",
           description: "Premium sayt va CRM integratsiyasi orqali savdo bo'limini tezlashtirdik.",
-        },
-        {
-          title: "B2B servis",
-          category: "Platforma va shaxsiy kabinet",
-          description: "Hamkorlar kabineti va arizalarni yagona voronkaga avtomatlashtirdik.",
         },
       ],
     },
@@ -661,28 +676,24 @@ const contentByLocale: Record<Locale, HomeContent> = {
       allServicesHref: "/en/services",
       items: [
         {
-          title: "Website development",
-          description: "Strategy, design, and launch for business‑focused websites.",
-          href: "/en/services/website-development",
-        },
-        {
           title: "Landing pages",
           description: "Single‑page sites for campaigns, offers, and fast validation.",
+          timeline: "2-4 days",
+          price: "1 490 000 UZS",
           href: "/en/services/landing-page",
         },
         {
           title: "Corporate websites",
           description: "Company websites with services, case studies, and trust blocks.",
+          timeline: "5-10 days",
+          price: "2 490 000 UZS",
           href: "/en/services/corporate-website",
-        },
-        {
-          title: "Ecommerce",
-          description: "Catalogs, filters, checkout, and integrations for online sales.",
-          href: "/en/services/ecommerce",
         },
         {
           title: "SEO services",
           description: "Technical optimization and content for organic growth.",
+          timeline: "30-60 days",
+          price: "3 490 000 UZS",
           href: "/en/services/seo",
         },
       ],
@@ -712,29 +723,29 @@ const contentByLocale: Record<Locale, HomeContent> = {
     },
     projectTypes: {
       eyebrow: "Project types and timelines",
-      title: "We plan",
-      highlight: "clearly upfront",
+      title: "Core",
+      highlight: "directions",
       items: [
         {
           title: "Landing page",
-          timeline: "7–14 days",
-          price: "from 1,500,000 UZS",
+          timeline: "2-4 days",
+          price: "1 490 000 UZS",
           process: ["Brief", "Structure", "Design in code", "Launch"],
           description: "Fast launch focused on leads and conversion.",
         },
         {
           title: "Corporate website",
-          timeline: "14–28 days",
-          price: "from 2,500,000 UZS",
+          timeline: "5-10 days",
+          price: "2 490 000 UZS",
           process: ["Brief", "Architecture", "Design in code", "Development", "Launch"],
           description: "Clear navigation with trust, services, and case studies.",
         },
         {
-          title: "Sales website / ecommerce",
-          timeline: "timeline on request",
-          price: "custom",
-          process: ["Brief", "Catalog", "Integrations", "Launch"],
-          description: "We prepare 2–3 options aligned with your budget and catalog size.",
+          title: "CRM dashboard",
+          timeline: "10-18 days",
+          price: "3 490 000 UZS",
+          process: ["Brief", "UX map", "Interface", "Integrations", "Launch"],
+          description: "A CRM workspace for teams: lead statuses, tasks, and a clear pipeline in one place.",
         },
       ],
       note: "Timelines and cost depend on content volume, number of pages, and integrations.",
@@ -746,19 +757,26 @@ const contentByLocale: Record<Locale, HomeContent> = {
       viewCaseLabel: "View case →",
       items: [
         {
-          title: "Furniture brand",
-          category: "E-commerce and catalogs",
-          description: "Launched an online store with filters, payment, and delivery across Uzbekistan.",
+          title: "MedTech Future (MTF)",
+          category: "Corporate website • Medical technologies",
+          description: "Built mtf.uz with clear positioning, service storytelling, and conversion-focused structure.",
+          href: "https://mtf.uz",
+          imageSrc: "/portfolio/mtf.png",
+          imageAlt: "MedTech Future (mtf.uz) homepage preview",
+        },
+        {
+          title: "Mir Matrasov (matras.uz)",
+          category: "SEO optimization • Ecommerce",
+          description:
+            "Completed SEO optimization for matras.uz, improving page structure, metadata, and internal linking for commercial intent.",
+          href: "https://matras.uz",
+          imageSrc: "/portfolio/mir-matrasov.png",
+          imageAlt: "matras.uz homepage after SEO optimization",
         },
         {
           title: "Developer",
           category: "Showcase site and leads",
           description: "Built a premium site and integrated CRM to speed up the sales team.",
-        },
-        {
-          title: "B2B service",
-          category: "Platform and client portal",
-          description: "Designed a partner portal and automated enquiries into one funnel.",
         },
       ],
     },

@@ -49,25 +49,25 @@ const Footer = ({ about, navTitle, contactTitle, socialTitle, location, navLinks
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-16 px-6 md:px-12 lg:px-20 border-t border-border/50"
+      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-white/30 bg-[linear-gradient(135deg,hsl(174_60%_39%)_0%,hsl(185_66%_47%)_100%)] text-white"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
         <div>
-          <div className="font-display font-semibold text-2xl tracking-tight text-foreground mb-4">
-            <span className="text-primary">Four</span>digital
+          <div className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-white mb-4">
+            <span className="text-white/90">Four</span>digital
           </div>
-          <p className="font-body text-sm text-muted-foreground leading-relaxed">
+          <p className="font-body text-base text-white/90 leading-relaxed">
             {about}
           </p>
         </div>
 
         <div>
-          <div className="font-display text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <div className="font-display text-base uppercase tracking-[0.24em] text-white/80 mb-4">
             {navTitle}
           </div>
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a key={link.href} href={link.href} className="font-body text-base text-white/88 hover:text-white transition-colors">
                 {link.label}
               </a>
             ))}
@@ -75,24 +75,24 @@ const Footer = ({ about, navTitle, contactTitle, socialTitle, location, navLinks
         </div>
 
         <div>
-          <div className="font-display text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <div className="font-display text-base uppercase tracking-[0.24em] text-white/80 mb-4">
             {contactTitle}
           </div>
-          <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-            <a className="inline-flex items-center gap-2 hover:text-foreground transition-colors" href={`tel:${siteConfig.phone}`}>
-              <Phone className="w-4 h-4 text-primary" /> {siteConfig.phone}
+          <div className="flex flex-col gap-3 text-base text-white/88">
+            <a className="inline-flex items-center gap-2 hover:text-white transition-colors" href={`tel:${siteConfig.phone}`}>
+              <Phone className="w-4 h-4 text-white/85" /> {siteConfig.phoneDisplay}
             </a>
-            <a className="inline-flex items-center gap-2 hover:text-foreground transition-colors" href={`mailto:${siteConfig.email}`}>
-              <Mail className="w-4 h-4 text-primary" /> {siteConfig.email}
+            <a className="inline-flex items-center gap-2 hover:text-white transition-colors" href={`mailto:${siteConfig.email}`}>
+              <Mail className="w-4 h-4 text-white/85" /> {siteConfig.email}
             </a>
             <span className="inline-flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary" /> {location}
+              <MapPin className="w-4 h-4 text-white/85" /> {location}
             </span>
           </div>
         </div>
 
         <div>
-          <div className="font-display text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+          <div className="font-display text-base uppercase tracking-[0.24em] text-white/80 mb-4">
             {socialTitle}
           </div>
           <div className="flex flex-col gap-3">
@@ -102,9 +102,9 @@ const Footer = ({ about, navTitle, contactTitle, socialTitle, location, navLinks
                 <a
                   key={link.label}
                   href={link.href}
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="inline-flex items-center gap-2 text-base text-white/88 hover:text-white transition-colors"
                 >
-                  <Icon className="w-4 h-4 text-primary" /> {link.label}
+                  <Icon className="w-4 h-4 text-white/85" /> {link.label}
                 </a>
               );
             })}
@@ -112,11 +112,11 @@ const Footer = ({ about, navTitle, contactTitle, socialTitle, location, navLinks
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="font-body text-xs text-muted-foreground">
+      <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/30 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
+        <p className="font-body text-sm text-white/80">
           {notePrimary}
         </p>
-        <p className="font-body text-xs text-muted-foreground">
+        <p className="font-body text-sm text-white/80">
           {noteSecondary}
         </p>
       </div>

@@ -6,6 +6,7 @@ import { getHomeContent } from "@/lib/content";
 import { getServicePages, getServicesIndexContent } from "@/lib/services";
 import { defaultLocale, isLocale, localeLabels, locales, ogLocaleMap } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site";
+import { getPrimaryServiceLink } from "@/lib/seo-content";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -35,7 +36,10 @@ export const generateMetadata = async ({
     keywords: content.meta.keywords,
     alternates: {
       canonical,
-      languages: languageAlternates,
+      languages: {
+        ...languageAlternates,
+        "x-default": `${siteConfig.url}/ru/services`,
+      },
     },
     openGraph: {
       type: "website",
@@ -76,13 +80,13 @@ const ServicesPage = async ({ params }: { params: Promise<ServicesPageParams> })
       <main>
         <section className="section-padding pt-32">
           <div className="max-w-5xl mx-auto text-center">
-            <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            <p className="font-body text-xs sm:text-sm uppercase tracking-[0.24em] sm:tracking-[0.3em] text-muted-foreground mb-4">
               {content.hero.eyebrow}
             </p>
-            <h1 className="font-display font-light text-4xl md:text-6xl text-foreground mb-6">
+            <h1 className="font-display font-light text-3xl sm:text-4xl md:text-6xl text-foreground mb-6">
               {content.hero.title}
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {content.hero.description}
             </p>
           </div>
@@ -91,7 +95,7 @@ const ServicesPage = async ({ params }: { params: Promise<ServicesPageParams> })
             {services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/${locale}/services/${service.slug}`}
+                href={getPrimaryServiceLink(locale, service.slug)}
                 className="glass-panel p-7 hover:shadow-[0_30px_80px_-20px_hsl(168_80%_35%/0.35)] transition-shadow duration-500"
               >
                 <span className="font-body text-xs uppercase tracking-[0.2em] text-primary mb-3 block">
@@ -110,7 +114,7 @@ const ServicesPage = async ({ params }: { params: Promise<ServicesPageParams> })
             ))}
           </div>
         </section>
-        <Contact {...homeContent.contact} />
+        <Contact locale={locale} {...homeContent.contact} />
       </main>
       <Footer {...homeContent.footer} navLinks={homeContent.navLinks} />
     </div>

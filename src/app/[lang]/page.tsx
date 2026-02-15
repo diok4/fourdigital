@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
-import ProjectTypes from "@/components/ProjectTypes";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import Team from "@/components/Team";
@@ -87,12 +86,11 @@ const Page = async ({ params }: { params: Promise<PageParams> }) => {
         <Hero {...content.hero} />
         <Services {...content.services} />
         <Process {...content.process} />
-        <ProjectTypes {...content.projectTypes} />
         <Portfolio {...content.portfolio} />
         <Testimonials {...content.testimonials} />
         <Team {...content.team} />
         <Faq {...content.faq} />
-        <Contact {...content.contact} />
+        <Contact locale={locale} {...content.contact} />
       </main>
       <Footer
         {...content.footer}

@@ -17,6 +17,26 @@ type ProjectTypesProps = {
 };
 
 const ProjectTypes = ({ eyebrow, title, highlight, items, note }: ProjectTypesProps) => {
+  const renderPrice = (price: string) => {
+    const normalized = price.replace(/\u00A0/g, " ").trim();
+    const match = normalized.match(/^(\d{1,3}(?: \d{3})*) (\d{3})(.*)$/);
+
+    if (!match) {
+      return <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">{price}</span>;
+    }
+
+    const [, major, minor, suffix] = match;
+    const tail = suffix.trim();
+
+    return (
+      <div className="flex items-baseline gap-1 text-foreground">
+        <span className="font-display text-3xl leading-none">{major}</span>
+        <span className="font-display text-sm leading-none text-foreground/80">{minor}</span>
+        {tail ? <span className="text-xs text-muted-foreground ml-1">{tail}</span> : null}
+      </div>
+    );
+  };
+
   return (
     <section id="types" className="section-padding bg-gradient-to-b from-secondary/20 via-transparent to-transparent">
       <div className="max-w-7xl mx-auto">
@@ -35,7 +55,7 @@ const ProjectTypes = ({ eyebrow, title, highlight, items, note }: ProjectTypesPr
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((item, index) => (
             <motion.div
               key={item.title}
@@ -47,10 +67,8 @@ const ProjectTypes = ({ eyebrow, title, highlight, items, note }: ProjectTypesPr
             >
               <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="text-primary font-display text-lg">{item.timeline}</span>
-                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {item.price}
-                </span>
               </div>
+              <div className="mb-4">{renderPrice(item.price)}</div>
               <h3 className="font-display text-2xl font-medium text-foreground mb-3">{item.title}</h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed mb-5">
                 {item.description}

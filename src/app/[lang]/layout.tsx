@@ -2,6 +2,7 @@ import "../globals.css";
 import type { Metadata } from "next";
 import { Istok_Web, Poppins } from "next/font/google";
 import Providers from "../providers";
+import FloatingTelegram from "@/components/FloatingTelegram";
 import { siteConfig } from "@/lib/site";
 import { getHomeContent } from "@/lib/content";
 import { defaultLocale, isLocale, locales, ogLocaleMap } from "@/lib/i18n";
@@ -54,7 +55,10 @@ export const generateMetadata = async ({
     keywords: content.meta.keywords,
     alternates: {
       canonical,
-      languages: languageAlternates,
+      languages: {
+        ...languageAlternates,
+        "x-default": `${siteConfig.url}/ru`,
+      },
     },
     openGraph: {
       type: "website",
@@ -103,7 +107,10 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
   return (
     <html lang={locale} className={`${poppins.variable} ${istok.variable}`} suppressHydrationWarning>
       <body className="font-body">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <FloatingTelegram />
+        </Providers>
       </body>
     </html>
   );

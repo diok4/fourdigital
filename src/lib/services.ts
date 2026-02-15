@@ -74,12 +74,12 @@ const pricingByLocale: Record<Locale, Record<ServiceSlug, ServicePricing>> = {
     },
     "landing-page": {
       label: "Стоимость",
-      value: "от 1 500 000 сум",
+      value: "1 490 000 сум",
       note: "Быстрый запуск и тестирование оффера.",
     },
     "corporate-website": {
       label: "Стоимость",
-      value: "от 2 500 000 сум",
+      value: "2 490 000 сум",
       note: "Зависит от структуры и объёма контента.",
     },
     ecommerce: {
@@ -89,8 +89,8 @@ const pricingByLocale: Record<Locale, Record<ServiceSlug, ServicePricing>> = {
     },
     seo: {
       label: "Стоимость",
-      value: "индивидуально",
-      note: "Зависит от ниши и конкуренции.",
+      value: "3 490 000 сум",
+      note: "Базовая цена за SEO-цикл 30-60 дней, детализация после аудита.",
     },
   },
   uz: {
@@ -101,12 +101,12 @@ const pricingByLocale: Record<Locale, Record<ServiceSlug, ServicePricing>> = {
     },
     "landing-page": {
       label: "Narx",
-      value: "1 500 000 so'mdan",
+      value: "1 490 000 so'm",
       note: "Tez ishga tushirish va offerni test qilish.",
     },
     "corporate-website": {
       label: "Narx",
-      value: "2 500 000 so'mdan",
+      value: "2 490 000 so'm",
       note: "Struktura va kontent hajmiga bog'liq.",
     },
     ecommerce: {
@@ -116,8 +116,8 @@ const pricingByLocale: Record<Locale, Record<ServiceSlug, ServicePricing>> = {
     },
     seo: {
       label: "Narx",
-      value: "individual",
-      note: "Nisha va raqobat darajasiga bog'liq.",
+      value: "3 490 000 so'm",
+      note: "30-60 kunlik SEO sikli uchun bazaviy narx, auditdan keyin aniqlashtiriladi.",
     },
   },
   en: {
@@ -128,12 +128,12 @@ const pricingByLocale: Record<Locale, Record<ServiceSlug, ServicePricing>> = {
     },
     "landing-page": {
       label: "Pricing",
-      value: "from 1,500,000 UZS",
+      value: "1,490,000 UZS",
       note: "Fast launch to test your offer.",
     },
     "corporate-website": {
       label: "Pricing",
-      value: "from 2,500,000 UZS",
+      value: "2,490,000 UZS",
       note: "Depends on structure and content scope.",
     },
     ecommerce: {
@@ -143,8 +143,8 @@ const pricingByLocale: Record<Locale, Record<ServiceSlug, ServicePricing>> = {
     },
     seo: {
       label: "Pricing",
-      value: "custom",
-      note: "Depends on niche and competition level.",
+      value: "3,490,000 UZS",
+      note: "Base price for a 30-60 day SEO cycle, finalized after an audit.",
     },
   },
 };

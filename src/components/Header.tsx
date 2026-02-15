@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import ThemeToggle from "@/components/ThemeToggle";
+import DiscussProjectDialog from "@/components/DiscussProjectDialog";
 import { cn } from "@/lib/utils";
 
 type NavLinkItem = {
@@ -39,12 +40,13 @@ const Header = ({ navLinks, ctaLabel, languages, homeHref, navBaseHref }: Header
   const withBase = (href: string) =>
     navBaseHref && href.startsWith("#") ? `${navBaseHref}${href}` : href;
 
-  const activeLanguage = languages.find((language) => language.isActive) ?? languages[0];
-
   const getLocaleFromHref = (href: string) => {
     const segment = href.split("/")[1];
     return segment || "";
   };
+
+  const activeLanguage = languages.find((language) => language.isActive) ?? languages[0];
+  const activeLocale = getLocaleFromHref(activeLanguage?.href ?? "");
 
   const flagForLocale = (locale: string) => {
     switch (locale) {
@@ -106,10 +108,10 @@ const Header = ({ navLinks, ctaLabel, languages, homeHref, navBaseHref }: Header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-12 lg:px-20 py-4"
     >
       <div className="max-w-7xl mx-auto">
-        <nav className="glass-panel px-5 py-3 flex items-center justify-between bg-background/70 backdrop-blur-xl">
+        <nav className="glass-panel px-4 sm:px-5 py-3 flex items-center justify-between bg-background/70 backdrop-blur-xl">
           <a href={homeHref} className="font-display font-semibold text-xl tracking-tight text-foreground">
             <span className="text-primary">Four</span>digital
           </a>
@@ -129,9 +131,7 @@ const Header = ({ navLinks, ctaLabel, languages, homeHref, navBaseHref }: Header
           <div className="hidden md:flex items-center gap-3">
             <LanguageMenu />
             <ThemeToggle />
-            <a href={withBase("#contact")} className="magnetic-button text-sm">
-              {ctaLabel}
-            </a>
+            <DiscussProjectDialog locale={activeLocale} triggerLabel={ctaLabel} triggerClassName="magnetic-button text-sm" />
           </div>
 
           <button
@@ -145,7 +145,7 @@ const Header = ({ navLinks, ctaLabel, languages, homeHref, navBaseHref }: Header
         </nav>
 
         <div className={`md:hidden mt-3 ${isOpen ? "block" : "hidden"}`}>
-          <div className="glass-panel bg-background/70 backdrop-blur-2xl border border-border/60 px-6 py-5 flex flex-col gap-4">
+          <div className="glass-panel bg-background/70 backdrop-blur-2xl border border-border/60 px-4 sm:px-6 py-5 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -160,9 +160,11 @@ const Header = ({ navLinks, ctaLabel, languages, homeHref, navBaseHref }: Header
               <LanguageMenu className="flex-1 justify-between" />
               <ThemeToggle className="ml-3" />
             </div>
-            <a href={withBase("#contact")} className="magnetic-button text-sm w-full" onClick={handleLinkClick}>
-              {ctaLabel}
-            </a>
+            <DiscussProjectDialog
+              locale={activeLocale}
+              triggerLabel={ctaLabel}
+              triggerClassName="magnetic-button text-sm w-full"
+            />
           </div>
         </div>
       </div>

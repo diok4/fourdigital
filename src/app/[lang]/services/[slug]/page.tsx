@@ -43,7 +43,10 @@ export const generateMetadata = async ({
     keywords: service.meta.keywords,
     alternates: {
       canonical,
-      languages: languageAlternates,
+      languages: {
+        ...languageAlternates,
+        "x-default": `${siteConfig.url}/ru/services/${service.slug}`,
+      },
     },
     openGraph: {
       type: "website",
@@ -82,6 +85,11 @@ const ServicePage = async ({ params }: { params: Promise<ServicePageParams> }) =
     uz: "Barcha xizmatlar",
     en: "All services",
   }[locale];
+  const discussButtons = new Set(["Обсудить проект", "Loyihani muhokama qilish", "Discuss a project"]);
+  const primaryCtaHref = discussButtons.has(service.cta.button)
+    ? siteConfig.telegram
+    : `mailto:${siteConfig.email}`;
+  const primaryCtaExternal = primaryCtaHref.startsWith("http");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -134,13 +142,13 @@ const ServicePage = async ({ params }: { params: Promise<ServicePageParams> }) =
       <main>
         <section className="section-padding pt-32">
           <div className="max-w-5xl mx-auto text-center">
-            <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            <p className="font-body text-xs sm:text-sm uppercase tracking-[0.24em] sm:tracking-[0.3em] text-muted-foreground mb-4">
               {service.hero.eyebrow}
             </p>
-            <h1 className="font-display font-light text-4xl md:text-6xl text-foreground mb-6">
+            <h1 className="font-display font-light text-3xl sm:text-4xl md:text-6xl text-foreground mb-6">
               {service.hero.title}
             </h1>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {service.hero.description}
             </p>
             <div className="mt-6 inline-flex flex-col items-center gap-1 rounded-2xl border border-border/50 bg-background/70 px-6 py-4">
@@ -155,10 +163,10 @@ const ServicePage = async ({ params }: { params: Promise<ServicePageParams> }) =
               ) : null}
             </div>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#contact" className="magnetic-button">
+              <a href="#contact" className="magnetic-button w-full sm:w-auto">
                 {service.hero.cta}
               </a>
-              <a href={`/${locale}/services`} className="font-display text-sm text-foreground hover:text-primary transition-colors">
+              <a href={`/${locale}/services`} className="font-display text-sm text-foreground hover:text-primary transition-colors w-full sm:w-auto text-center">
                 {allServicesLabel} →
               </a>
             </div>
@@ -244,11 +252,16 @@ const ServicePage = async ({ params }: { params: Promise<ServicePageParams> }) =
               {service.cta.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={`mailto:${siteConfig.email}`} className="magnetic-button">
+              <a
+                href={primaryCtaHref}
+                className="magnetic-button w-full sm:w-auto"
+                target={primaryCtaExternal ? "_blank" : undefined}
+                rel={primaryCtaExternal ? "noopener noreferrer" : undefined}
+              >
                 {service.cta.button}
               </a>
               <a href={`tel:${siteConfig.phone}`} className="font-display text-sm text-foreground hover:text-primary transition-colors">
-                {siteConfig.phone}
+                {siteConfig.phoneDisplay}
               </a>
             </div>
           </div>
