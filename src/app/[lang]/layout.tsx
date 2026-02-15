@@ -39,6 +39,13 @@ export const generateMetadata = async ({
 
   return {
     metadataBase: new URL(siteConfig.url),
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico" },
+      ],
+      shortcut: "/favicon.svg",
+    },
     title: {
       default: content.meta.title,
       template: `%s — ${siteConfig.name}`,
