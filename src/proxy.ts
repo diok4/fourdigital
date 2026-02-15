@@ -3,7 +3,7 @@ import { defaultLocale, locales } from "@/lib/i18n";
 
 const PUBLIC_FILE = /\.(.*)$/;
 
-export const middleware = (request: NextRequest) => {
+export const proxy = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
 
   if (PUBLIC_FILE.test(pathname)) return;
