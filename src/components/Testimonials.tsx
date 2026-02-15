@@ -1,61 +1,20 @@
+"use client";
+
 import { motion } from "framer-motion";
 
-const testimonials = [
-  {
-    quote:
-      "Сайт вышел быстрее ожидаемого. Получили рост заявок уже в первый месяц запуска.",
-    name: "Азиз К.",
-    role: "Директор, мебельный бренд",
-  },
-  {
-    quote:
-      "Команда чётко держала сроки и предложила сильные улучшения по структуре и SEO.",
-    name: "Шахноза Р.",
-    role: "Маркетинг, девелопер",
-  },
-  {
-    quote:
-      "Простой процесс согласований и понятная аналитика. Рекомендуем как надёжного подрядчика.",
-    name: "Ильяс М.",
-    role: "Сооснователь, B2B сервис",
-  },
-  {
-    quote:
-      "Сайт стал основным каналом входящих. Понравилась скорость и прозрачность процесса.",
-    name: "Самира Т.",
-    role: "Руководитель продаж",
-  },
-  {
-    quote:
-      "Обновили позиционирование и структуру — конверсия выросла заметно уже через 2 недели.",
-    name: "Рустам А.",
-    role: "СЕО, сервисная компания",
-  },
-  {
-    quote:
-      "Сделали чистый интерфейс и быстро подключили аналитику. Всё понятно и по делу.",
-    name: "Нодира С.",
-    role: "Операционный директор",
-  },
-  {
-    quote:
-      "Внимание к деталям и аккуратный код. Проект готов к росту без переделок.",
-    name: "Жасур Б.",
-    role: "Тех. лидер, стартап",
-  },
-  {
-    quote:
-      "Нам помогли выделиться среди конкурентов и упростили путь клиента до заявки.",
-    name: "Камола У.",
-    role: "Маркетинг, B2C бренд",
-  },
-];
+type Testimonial = { quote: string; name: string; role: string };
 
-const rowOne = testimonials.slice(0, 4);
-const rowTwo = testimonials.slice(4);
+type TestimonialsProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  items: Testimonial[];
+};
 
-const Testimonials = () => {
-  type Testimonial = (typeof testimonials)[number];
+const Testimonials = ({ eyebrow, title, highlight, items }: TestimonialsProps) => {
+  const rowOne = items.slice(0, 4);
+  const rowTwo = items.slice(4);
+
   const renderRow = (items: Testimonial[], direction: "left" | "right") => {
     const loopItems = [...items, ...items];
 
@@ -89,10 +48,10 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Отзывы клиентов
+            {eyebrow}
           </p>
           <h2 className="font-display font-light text-4xl md:text-5xl text-foreground">
-            Нам доверяют <span className="font-medium">результаты</span>
+            {title} <span className="font-medium">{highlight}</span>
           </h2>
         </motion.div>
       </div>

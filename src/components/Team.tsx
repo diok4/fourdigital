@@ -1,29 +1,17 @@
+"use client";
+
 import { motion } from "framer-motion";
 
-const team = [
-  {
-    name: "Фаррух",
-    role: "Стратегия и развитие",
-    note: "Фокус на бизнес‑целях и росте заявок.",
-  },
-  {
-    name: "Диана",
-    role: "UX/UI и бренд",
-    note: "Понятные сценарии и сильная визуальная система.",
-  },
-  {
-    name: "Азиз",
-    role: "Frontend и интеграции",
-    note: "Быстрые интерфейсы и чистый код без лишних слоёв.",
-  },
-  {
-    name: "Мадина",
-    role: "SEO и аналитика",
-    note: "Техническая оптимизация и рост органики.",
-  },
-];
+type TeamMember = { name: string; role: string; note: string };
 
-const Team = () => {
+type TeamProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  items: TeamMember[];
+};
+
+const Team = ({ eyebrow, title, highlight, items }: TeamProps) => {
   return (
     <section id="team" className="section-padding">
       <div className="max-w-7xl mx-auto">
@@ -35,15 +23,16 @@ const Team = () => {
           className="text-center mb-16"
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Команда профессионалов
+            {eyebrow}
           </p>
           <h2 className="font-display font-light text-4xl md:text-5xl text-foreground">
-            Команда <span className="font-medium">Fourdigital</span>
+            {title ? `${title} ` : ""}
+            <span className="font-medium">{highlight}</span>
           </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {team.map((member, index) => (
+          {items.map((member, index) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 40 }}

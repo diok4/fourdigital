@@ -1,6 +1,17 @@
-import { motion } from "framer-motion";
+"use client";
 
-const Contact = () => {
+import { motion } from "framer-motion";
+import { siteConfig } from "@/lib/site";
+
+type ContactProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  description: string;
+  cta: string;
+};
+
+const Contact = ({ eyebrow, title, highlight, description, cta }: ContactProps) => {
   return (
     <section id="contact" className="section-padding">
       <div className="max-w-4xl mx-auto text-center">
@@ -11,24 +22,36 @@ const Contact = () => {
           transition={{ duration: 0.7 }}
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Свяжитесь с нами
+            {eyebrow}
           </p>
           <h2 className="font-display font-light text-4xl md:text-6xl text-foreground mb-6">
-            Готовы к сильному
+            {title}
             <br />
-            <span className="font-medium">перезапуску сайта?</span>
+            <span className="font-medium">{highlight}</span>
           </h2>
           <p className="font-body text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
-            Расскажите о задаче — мы предложим решение и план запуска в короткие сроки.
+            {description}
           </p>
           
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="magnetic-button text-lg px-12 py-5"
-          >
-            Обсудить проект
-          </motion.button>
+          <div className="flex flex-col items-center gap-5">
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="magnetic-button text-lg px-12 py-5"
+              href={`mailto:${siteConfig.email}`}
+            >
+              {cta}
+            </motion.a>
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-sm text-muted-foreground">
+              <a className="hover:text-foreground transition-colors" href={`tel:${siteConfig.phone}`}>
+                {siteConfig.phone}
+              </a>
+              <span className="hidden sm:inline">•</span>
+              <a className="hover:text-foreground transition-colors" href={`mailto:${siteConfig.email}`}>
+                {siteConfig.email}
+              </a>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

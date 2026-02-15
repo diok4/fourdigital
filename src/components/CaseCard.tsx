@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 
 interface CaseCardProps {
@@ -5,9 +7,10 @@ interface CaseCardProps {
   category: string;
   description: string;
   index: number;
+  viewLabel: string;
 }
 
-const CaseCard = ({ title, category, description, index }: CaseCardProps) => {
+const CaseCard = ({ title, category, description, index, viewLabel }: CaseCardProps) => {
   return (
     <motion.article
       initial={{ opacity: 0, y: 60, scale: 0.95 }}
@@ -52,7 +55,7 @@ const CaseCard = ({ title, category, description, index }: CaseCardProps) => {
           className="absolute inset-0 bg-gradient-to-t from-background/95 to-transparent flex items-end p-8"
         >
           <span className="font-display text-foreground text-lg font-medium">
-            Смотреть кейс →
+            {viewLabel}
           </span>
         </motion.div>
       </div>

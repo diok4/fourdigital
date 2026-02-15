@@ -1,6 +1,17 @@
+"use client";
+
 import { motion } from "framer-motion";
 
-const Hero = () => {
+type HeroProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  description: string;
+  primaryCta: string;
+  secondaryCta: string;
+};
+
+const Hero = ({ eyebrow, title, highlight, description, primaryCta, secondaryCta }: HeroProps) => {
   return (
     <section className="min-h-screen flex items-center justify-center section-padding pt-32 relative overflow-hidden">
       <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -10,7 +21,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-6"
         >
-          Цифровое агентство в Узбекистане
+          {eyebrow}
         </motion.p>
         
         <motion.h1
@@ -19,9 +30,9 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="font-display font-light text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] tracking-tight mb-8"
         >
-          Создание сайтов под ключ
+          {title}
           <br />
-          <span className="font-medium">в Узбекистане — SEO‑продвижение</span>
+          <span className="font-medium">{highlight}</span>
         </motion.h1>
         
         <motion.p
@@ -30,8 +41,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="font-body text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Fourdigital.uz — агентство по созданию сайтов под ключ: стратегия, дизайн и разработка,
-          которые приводят клиентов. Помогаем брендам в Узбекистане выигрывать внимание и заявки.
+          {description}
         </motion.p>
         
         <motion.div
@@ -40,14 +50,14 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button className="magnetic-button">
-            Запустить проект
-          </button>
+          <a href="#contact" className="magnetic-button">
+            {primaryCta}
+          </a>
           <a 
             href="#portfolio" 
             className="font-display text-sm font-medium text-foreground px-8 py-4 hover:text-primary transition-colors duration-300"
           >
-            Смотреть кейсы
+            {secondaryCta}
           </a>
         </motion.div>
       </div>

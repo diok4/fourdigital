@@ -87,14 +87,14 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Istok Web', sans-serif;
+    font-family: var(--font-body), sans-serif;
     background-image:
       radial-gradient(circle at 12% 8%, hsl(var(--primary) / 0.16), transparent 52%),
       radial-gradient(circle at 88% 18%, hsl(var(--accent) / 0.12), transparent 45%);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-display), sans-serif;
   }
 }
 
@@ -200,11 +200,11 @@
   }
 
   .font-display {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-display), sans-serif;
   }
 
   .font-body {
-    font-family: 'Istok Web', sans-serif;
+    font-family: var(--font-body), sans-serif;
   }
 
   .marquee {

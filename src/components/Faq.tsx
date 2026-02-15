@@ -1,34 +1,17 @@
+"use client";
+
 import { motion } from "framer-motion";
 
-const faqs = [
-  {
-    question: "Какой бюджет нужен на сайт?",
-    answer:
-      "Стоимость зависит от задач, количества страниц и интеграций. После брифа даём точную смету.",
-  },
-  {
-    question: "Почему дизайн без Figma?",
-    answer:
-      "Мы проектируем сразу в браузере — это быстрее и позволяет сразу видеть, как всё работает на разных экранах.",
-  },
-  {
-    question: "Используете платные CMS?",
-    answer:
-      "Нет. Если нужна админка — используем бесплатные решения или делаем лёгкую кастомную панель.",
-  },
-  {
-    question: "Что нужно подготовить со стороны клиента?",
-    answer:
-      "Цели проекта, контент и примеры сайтов, которые вам нравятся. Остальное соберём вместе.",
-  },
-  {
-    question: "Как устроено SEO‑продвижение?",
-    answer:
-      "Стартуем с технической оптимизации, затем семантика, контент и регулярные отчёты по росту.",
-  },
-];
+type FaqItem = { question: string; answer: string };
 
-const Faq = () => {
+type FaqProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  items: FaqItem[];
+};
+
+const Faq = ({ eyebrow, title, highlight, items }: FaqProps) => {
   return (
     <section id="faq" className="section-padding bg-gradient-to-b from-transparent to-secondary/20">
       <div className="max-w-5xl mx-auto">
@@ -40,15 +23,15 @@ const Faq = () => {
           className="text-center mb-16"
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            FAQ
+            {eyebrow}
           </p>
           <h2 className="font-display font-light text-4xl md:text-5xl text-foreground">
-            Часто задаваемые <span className="font-medium">вопросы</span>
+            {title} <span className="font-medium">{highlight}</span>
           </h2>
         </motion.div>
 
         <div className="space-y-4">
-          {faqs.map((item, index) => (
+          {items.map((item, index) => (
             <motion.details
               key={item.question}
               initial={{ opacity: 0, y: 30 }}

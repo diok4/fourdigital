@@ -1,23 +1,22 @@
+"use client";
+
 import { motion } from "framer-motion";
 
-const projectTypes = [
-  {
-    title: "Лендинг",
-    timeline: "7–14 дней",
-    price: "от 6 000 000 сум",
-    process: ["Бриф", "Структура", "Дизайн в коде", "Запуск"],
-    description: "Быстрый запуск оффера с фокусом на лиды и конверсию.",
-  },
-  {
-    title: "Корпоративный сайт",
-    timeline: "14–28 дней",
-    price: "от 12 000 000 сум",
-    process: ["Бриф", "Архитектура", "Дизайн в коде", "Разработка", "Запуск"],
-    description: "Структура, доверие, услуги и кейсы в понятной навигации.",
-  },
-];
+type ProjectTypesProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  items: {
+    title: string;
+    timeline: string;
+    price: string;
+    process: string[];
+    description: string;
+  }[];
+  note: string;
+};
 
-const ProjectTypes = () => {
+const ProjectTypes = ({ eyebrow, title, highlight, items, note }: ProjectTypesProps) => {
   return (
     <section id="types" className="section-padding bg-gradient-to-b from-secondary/20 via-transparent to-transparent">
       <div className="max-w-7xl mx-auto">
@@ -29,15 +28,15 @@ const ProjectTypes = () => {
           className="text-center mb-16"
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Типы проектов и сроки
+            {eyebrow}
           </p>
           <h2 className="font-display font-light text-4xl md:text-5xl text-foreground">
-            Планируем <span className="font-medium">честно и заранее</span>
+            {title} <span className="font-medium">{highlight}</span>
           </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projectTypes.map((item, index) => (
+          {items.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 40 }}
@@ -71,7 +70,7 @@ const ProjectTypes = () => {
         </div>
 
         <p className="mt-8 text-center text-sm text-muted-foreground">
-          Сроки и стоимость зависят от объёма контента, количества страниц и интеграций.
+          {note}
         </p>
       </div>
     </section>

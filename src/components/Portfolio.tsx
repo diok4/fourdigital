@@ -1,28 +1,17 @@
+"use client";
+
 import { motion } from "framer-motion";
 import CaseCard from "./CaseCard";
 
-const cases = [
-  {
-    title: "Мебельный бренд",
-    category: "E-commerce и каталоги",
-    description:
-      "Запустили интернет-магазин с фильтрами, оплатой и доставкой по Узбекистану.",
-  },
-  {
-    title: "Девелопер",
-    category: "Сайт-витрина и лиды",
-    description:
-      "Собрали премиальный сайт и интегрировали CRM, чтобы отдел продаж работал быстрее.",
-  },
-  {
-    title: "B2B сервис",
-    category: "Платформа и личный кабинет",
-    description:
-      "Спроектировали кабинет партнёров и автоматизировали заявки в единую воронку.",
-  },
-];
+type PortfolioProps = {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  viewCaseLabel: string;
+  items: { title: string; category: string; description: string }[];
+};
 
-const Portfolio = () => {
+const Portfolio = ({ eyebrow, title, highlight, viewCaseLabel, items }: PortfolioProps) => {
   return (
     <section id="portfolio" className="section-padding bg-gradient-to-b from-transparent to-secondary/30">
       <div className="max-w-7xl mx-auto">
@@ -34,16 +23,16 @@ const Portfolio = () => {
           className="text-center mb-16"
         >
           <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Наши проекты
+            {eyebrow}
           </p>
           <h2 className="font-display font-light text-4xl md:text-5xl text-foreground">
-            Проекты, которые <span className="font-medium">дают результат</span>
+            {title} <span className="font-medium">{highlight}</span>
           </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {cases.map((caseItem, index) => (
-            <CaseCard key={caseItem.title} {...caseItem} index={index} />
+          {items.map((caseItem, index) => (
+            <CaseCard key={caseItem.title} {...caseItem} index={index} viewLabel={viewCaseLabel} />
           ))}
         </div>
       </div>
