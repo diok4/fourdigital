@@ -1378,12 +1378,12 @@ const caseStudiesByLocale: Record<SeoLocale, CaseStudy[]> = {
     },
     {
       slug: "mir-matrasov-matras-uz",
-      title: "Кейс: Mir Matrasov (matras.uz)",
-      seoTitle: "Кейс: SEO-оптимизация matras.uz | Fourdigital",
-      metaDescription: "Как для matras.uz провели SEO-оптимизацию и усилили видимость коммерческих страниц в поиске.",
+      title: "Кейс: Mir Matrasov (mirmatrasov.uz)",
+      seoTitle: "Кейс: SEO-оптимизация mirmatrasov.uz | Fourdigital",
+      metaDescription: "Как для mirmatrasov.uz провели SEO-оптимизацию и усилили видимость коммерческих страниц в поиске.",
       industry: "E-commerce",
       intro:
-        "Для проекта Mir Matrasov (matras.uz) задача была в том, чтобы усилить органический трафик и сделать каталог понятнее для поисковых систем и пользователей.",
+        "Для проекта Mir Matrasov (mirmatrasov.uz) задача была в том, чтобы усилить органический трафик и сделать каталог понятнее для поисковых систем и пользователей.",
       challenge:
         "Часть коммерческих страниц была слабо оптимизирована, а внутренняя перелинковка не раскрывала приоритетные категории.",
       solution: [
@@ -1397,7 +1397,7 @@ const caseStudiesByLocale: Record<SeoLocale, CaseStudy[]> = {
         "Подготовили структуру сайта к дальнейшему масштабированию SEO-контента.",
       ],
       ctas: [
-        { label: "Открыть matras.uz", href: "https://matras.uz" },
+        { label: "Открыть mirmatrasov.uz", href: "https://www.mirmatrasov.uz/" },
         { label: "Обсудить SEO для сайта", href: ruLinks.seo },
       ],
     },
@@ -1463,12 +1463,12 @@ const caseStudiesByLocale: Record<SeoLocale, CaseStudy[]> = {
     },
     {
       slug: "mir-matrasov-matras-uz",
-      title: "Keys: Mir Matrasov (matras.uz)",
-      seoTitle: "Keys: matras.uz SEO optimizatsiyasi | Fourdigital",
-      metaDescription: "matras.uz uchun texnik va on-page SEO optimizatsiyasi orqali tijoriy sahifalar ko'rinishini kuchaytirish tajribasi.",
+      title: "Keys: Mir Matrasov (mirmatrasov.uz)",
+      seoTitle: "Keys: mirmatrasov.uz SEO optimizatsiyasi | Fourdigital",
+      metaDescription: "mirmatrasov.uz uchun texnik va on-page SEO optimizatsiyasi orqali tijoriy sahifalar ko'rinishini kuchaytirish tajribasi.",
       industry: "E-commerce",
       intro:
-        "Mir Matrasov (matras.uz) loyihasida asosiy maqsad organik trafikni oshirish va katalogni qidiruv tizimi hamda foydalanuvchi uchun aniqroq qilish edi.",
+        "Mir Matrasov (mirmatrasov.uz) loyihasida asosiy maqsad organik trafikni oshirish va katalogni qidiruv tizimi hamda foydalanuvchi uchun aniqroq qilish edi.",
       challenge: "Tijoriy sahifalarning bir qismi yetarli optimizatsiyaga ega emasdi, ichki linking ham prioritet kategoriyalarni to'liq ochib bermasdi.",
       solution: [
         "Kalit sahifalar uchun texnik va on-page SEO audit o'tkazdik.",
@@ -1481,7 +1481,7 @@ const caseStudiesByLocale: Record<SeoLocale, CaseStudy[]> = {
         "Keyingi SEO kontent masshtabi uchun sayt strukturasi tayyorlandi.",
       ],
       ctas: [
-        { label: "matras.uz ni ochish", href: "https://matras.uz" },
+        { label: "mirmatrasov.uz ni ochish", href: "https://www.mirmatrasov.uz/" },
         { label: "SEO xizmatini muhokama qilish", href: uzLinks.seo },
       ],
     },

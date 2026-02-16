@@ -251,13 +251,13 @@ const contentByLocale: Record<Locale, HomeContent> = {
           imageAlt: "Главный экран сайта MedTech Future (mtf.uz)",
         },
         {
-          title: "Mir Matrasov (matras.uz)",
+          title: "Mir Matrasov (mirmatrasov.uz)",
           category: "SEO оптимизация • E-commerce",
           description:
-            "Для matras.uz выполнили SEO-оптимизацию: усилили структуру страниц, метаданные и внутреннюю перелинковку под коммерческие запросы.",
-          href: "https://matras.uz",
+            "Для mirmatrasov.uz выполнили SEO-оптимизацию: усилили структуру страниц, метаданные и внутреннюю перелинковку под коммерческие запросы.",
+          href: "https://www.mirmatrasov.uz/",
           imageSrc: "/portfolio/mir-matrasov.png",
-          imageAlt: "Главный экран сайта matras.uz после SEO-оптимизации",
+          imageAlt: "Главный экран сайта mirmatrasov.uz после SEO-оптимизации",
         },
         {
           title: "Девелопер",
@@ -509,13 +509,13 @@ const contentByLocale: Record<Locale, HomeContent> = {
           imageAlt: "MedTech Future (mtf.uz) bosh sahifa preview",
         },
         {
-          title: "Mir Matrasov (matras.uz)",
+          title: "Mir Matrasov (mirmatrasov.uz)",
           category: "SEO optimizatsiya • E-commerce",
           description:
-            "matras.uz uchun texnik va kontent SEO optimizatsiyasini bajardik: sahifa strukturasi, metadata va ichki linking kuchaytirildi.",
-          href: "https://matras.uz",
+            "mirmatrasov.uz uchun texnik va kontent SEO optimizatsiyasini bajardik: sahifa strukturasi, metadata va ichki linking kuchaytirildi.",
+          href: "https://www.mirmatrasov.uz/",
           imageSrc: "/portfolio/mir-matrasov.png",
-          imageAlt: "SEO optimizatsiyadan keyingi matras.uz bosh sahifasi",
+          imageAlt: "SEO optimizatsiyadan keyingi mirmatrasov.uz bosh sahifasi",
         },
         {
           title: "Devloper",
@@ -765,13 +765,13 @@ const contentByLocale: Record<Locale, HomeContent> = {
           imageAlt: "MedTech Future (mtf.uz) homepage preview",
         },
         {
-          title: "Mir Matrasov (matras.uz)",
+          title: "Mir Matrasov (mirmatrasov.uz)",
           category: "SEO optimization • Ecommerce",
           description:
-            "Completed SEO optimization for matras.uz, improving page structure, metadata, and internal linking for commercial intent.",
-          href: "https://matras.uz",
+            "Completed SEO optimization for mirmatrasov.uz, improving page structure, metadata, and internal linking for commercial intent.",
+          href: "https://www.mirmatrasov.uz/",
           imageSrc: "/portfolio/mir-matrasov.png",
-          imageAlt: "matras.uz homepage after SEO optimization",
+          imageAlt: "mirmatrasov.uz homepage after SEO optimization",
         },
         {
           title: "Developer",
