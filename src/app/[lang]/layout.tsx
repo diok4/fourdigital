@@ -25,6 +25,9 @@ type LayoutParams = {
   lang: string;
 };
 
+const faviconVersion = "20260221";
+const faviconUrl = `/favicon.svg?v=${faviconVersion}`;
+
 export const generateMetadata = async ({
   params,
 }: {
@@ -42,10 +45,9 @@ export const generateMetadata = async ({
     metadataBase: new URL(siteConfig.url),
     icons: {
       icon: [
-        { url: "/favicon.svg", type: "image/svg+xml" },
-        { url: "/favicon.ico" },
+        { url: faviconUrl, type: "image/svg+xml", sizes: "any" },
       ],
-      shortcut: "/favicon.svg",
+      shortcut: faviconUrl,
     },
     title: {
       default: content.meta.title,
