@@ -25,8 +25,10 @@ type LayoutParams = {
   lang: string;
 };
 
-const faviconVersion = "20260221";
-const faviconUrl = `/favicon.svg?v=${faviconVersion}`;
+const faviconVersion = "20260222";
+const faviconSvgUrl = `/favicon.svg?v=${faviconVersion}`;
+const faviconPngUrl = `/favicon-48x48.png?v=${faviconVersion}`;
+const appleTouchIconUrl = `/apple-touch-icon.png?v=${faviconVersion}`;
 
 export const generateMetadata = async ({
   params,
@@ -45,9 +47,12 @@ export const generateMetadata = async ({
     metadataBase: new URL(siteConfig.url),
     icons: {
       icon: [
-        { url: faviconUrl, type: "image/svg+xml", sizes: "any" },
+        { url: faviconPngUrl, type: "image/png", sizes: "48x48" },
+        { url: faviconSvgUrl, type: "image/svg+xml", sizes: "any" },
+        { url: "/favicon.ico", sizes: "48x48" },
       ],
-      shortcut: faviconUrl,
+      shortcut: "/favicon.ico",
+      apple: [{ url: appleTouchIconUrl, type: "image/png", sizes: "180x180" }],
     },
     title: {
       default: content.meta.title,
